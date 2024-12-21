@@ -3,6 +3,7 @@ import express from 'express';
 import tasksRouter from './api/tasks';
 import './db';
 import usersRouter from './api/users';
+import cors from 'cors';
 
 dotenv.config();
 
@@ -16,6 +17,10 @@ const errHandler = (err, req, res, next) => {
 };
 
 const app = express();
+
+// Enable CORS for all requests
+app.use(cors());
+
 
 const port = process.env.PORT;
 
